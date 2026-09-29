@@ -29,7 +29,6 @@ function calculateRealCost() {
   const uses = num("uses");
   const maintenance = num("maintenance");
   const resale = num("resale");
-
   const result = document.getElementById("result");
 
   if (price <= 0 || years <= 0 || uses <= 0) {
@@ -49,6 +48,11 @@ function calculateRealCost() {
   const perDay = net / (years * 365);
   const perMonth = net / (years * 12);
   const perYear = net / years;
+
+  const grossBeforeResale = price + totalMaintenance;
+  const purchasePct = grossBeforeResale > 0 ? (price / grossBeforeResale) * 100 : 0;
+  const maintenancePct = grossBeforeResale > 0 ? (totalMaintenance / grossBeforeResale) * 100 : 0;
+  const resalePct = grossBeforeResale > 0 ? (resale / grossBeforeResale) * 100 : 0;
 
   result.innerHTML = `
     <div class="result-main">
@@ -79,11 +83,33 @@ function calculateRealCost() {
         </div>
       </div>
 
+      <div class="usage-card">
+        <div>
+          <small>ESTIMATED TOTAL USES</small>
+          <strong>${Math.round(totalUses).toLocaleString("en-IN")}</strong>
+        </div>
+        <div>
+          <small>WEEKLY USAGE</small>
+          <strong>${uses.toLocaleString("en-IN")}</strong>
+        </div>
+      </div>
+
       <div class="breakdown">
-        <div><span>Purchase price</span><strong>${money(price)}</strong></div>
-        <div><span>Total maintenance</span><strong>${money(totalMaintenance)}</strong></div>
-        <div><span>Expected resale</span><strong>− ${money(resale)}</strong></div>
-        <div><span>Estimated total uses</span><strong>${Math.round(totalUses).toLocaleString("en-IN")}</strong></div>
+        <div class="breakdown-title">COST BREAKDOWN</div>
+        <div class="breakdown-row">
+          <span>Purchase price</span><strong>${money(price)}</strong>
+        </div>
+        <div class="bar"><span style="width:${purchasePct}%"></span></div>
+
+        <div class="breakdown-row">
+          <span>Total maintenance</span><strong>${money(totalMaintenance)}</strong>
+        </div>
+        <div class="bar"><span style="width:${maintenancePct}%"></span></div>
+
+        <div class="breakdown-row resale-row">
+          <span>Expected resale</span><strong>− ${money(resale)}</strong>
+        </div>
+        <div class="bar resale-bar"><span style="width:${Math.min(resalePct, 100)}%"></span></div>
       </div>
 
       <div class="result-note">
