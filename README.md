@@ -1,29 +1,25 @@
-# LifeCost v4
+# LifeCost V5
 
-A browser-based real-cost-of-purchase calculator.
+LifeCost is a browser-based real-cost calculator with a side-by-side purchase comparison.
 
-## What it calculates
-
-LifeCost estimates:
+## Features
 
 - Net cost after maintenance and expected resale
 - Cost per use
 - Cost per day
 - Cost per month
 - Average cost per year
-- Estimated total number of uses
-- A visual cost breakdown
+- Estimated total uses
+- Visual cost breakdown
+- **Compare two purchases side by side**
+- Mobile-friendly layout
+- No backend required; calculations happen in the browser
 
-## What's new in v4
+## V5 update
 
-- More prominent result card
-- Estimated total uses and weekly usage
-- Visual purchase / maintenance / resale breakdown
-- Improved mobile layout
-- Cleaner result hierarchy
-- No backend or account required
+V5 adds a comparison tool that calculates the same metrics for Purchase A and Purchase B and displays them in a table. It provides information without selecting a purchase for the user.
 
-## Run
+## Run locally
 
 Open `index.html` in a browser.
 
@@ -33,5 +29,3 @@ Open `index.html` in a browser.
 - `styles.css`
 - `script.js`
 - `README.md`
-
-All calculations happen locally in the browser.

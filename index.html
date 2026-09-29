@@ -3,37 +3,37 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="LifeCost helps you estimate the real cost of a purchase using cost per use, cost per day, monthly and yearly cost, maintenance, usage and resale value.">
-<title>LifeCost — Is This Purchase Worth It?</title>
+<meta name="description" content="LifeCost helps you estimate real purchase cost and compare two purchases using cost per use, maintenance and resale value.">
+<title>LifeCost — Calculate & Compare Real Cost</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <header class="site-header">
   <a class="brand" href="#top">LifeCost</a>
-  <nav><a href="#calculator">Calculator</a><a href="#examples">Examples</a><a href="#how">How it works</a></nav>
+  <nav><a href="#calculator">Calculator</a><a href="#compare">Compare</a><a href="#examples">Examples</a><a href="#how">How it works</a></nav>
 </header>
 
 <main id="top">
 <section class="hero">
   <div class="hero-copy">
     <p class="eyebrow">BUY SMARTER</p>
-    <h1>Is this purchase <span>really worth it?</span></h1>
-    <p>Don't judge a purchase by its price tag alone. See what it could cost you per use, per day, per month, and per year.</p>
+    <h1>What will it <span>really cost you?</span></h1>
+    <p>Look beyond the price tag. Calculate the cost of using something over its lifetime, then compare two purchases side by side.</p>
     <a class="button" href="#calculator">Calculate my purchase</a>
   </div>
   <div class="hero-preview">
-    <div class="preview-label">Example: ₹60,000 laptop</div>
-    <div class="preview-number">₹8.22 <small>/ hour</small></div>
-    <div class="preview-row"><span>4-year life</span><span>5 hrs/day</span></div>
-    <div class="preview-note">The more you use something, the more its cost can spread out.</div>
+    <div class="preview-label">LifeCost example</div>
+    <div class="preview-number">₹14.90 <small>/ use</small></div>
+    <div class="preview-row"><span>₹60,000 purchase</span><span>4,160 uses</span></div>
+    <div class="preview-note">A purchase can look expensive upfront but have a lower cost when you use it often.</div>
   </div>
 </section>
 
 <section id="calculator" class="section">
   <div class="section-heading">
     <p class="eyebrow">REAL COST CALCULATOR</p>
-    <h2>Enter the purchase details.</h2>
-    <p>Use estimates if you don't know the exact numbers. Nothing is sent to a server.</p>
+    <h2>Calculate one purchase.</h2>
+    <p>Use estimates if you don't know the exact numbers. Everything is calculated in your browser.</p>
   </div>
 
   <div class="calculator">
@@ -74,6 +74,77 @@
   </div>
 </section>
 
+<section id="compare" class="section compare-section">
+  <div class="section-heading">
+    <p class="eyebrow">COMPARE TWO PURCHASES</p>
+    <h2>Put two options side by side.</h2>
+    <p>Enter the same type of information for both purchases. LifeCost calculates the numbers separately so you can inspect the difference yourself.</p>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <div class="compare-title"><span class="compare-badge">A</span><h3>Purchase A</h3></div>
+      <label>Name
+        <input id="aItem" type="text" placeholder="e.g. Laptop A">
+      </label>
+      <label>Price (₹)
+        <input id="aPrice" type="number" min="0" step="0.01" placeholder="60000">
+      </label>
+      <div class="two">
+        <label>Life (years)
+          <input id="aYears" type="number" min="0.1" step="0.1" placeholder="4">
+        </label>
+        <label>Uses/week
+          <input id="aUses" type="number" min="0" step="0.1" placeholder="20">
+        </label>
+      </div>
+      <div class="two">
+        <label>Maintenance/year (₹)
+          <input id="aMaintenance" type="number" min="0" step="0.01" placeholder="3000">
+        </label>
+        <label>Resale (₹)
+          <input id="aResale" type="number" min="0" step="0.01" placeholder="10000">
+        </label>
+      </div>
+    </div>
+
+    <div class="compare-card">
+      <div class="compare-title"><span class="compare-badge">B</span><h3>Purchase B</h3></div>
+      <label>Name
+        <input id="bItem" type="text" placeholder="e.g. Laptop B">
+      </label>
+      <label>Price (₹)
+        <input id="bPrice" type="number" min="0" step="0.01" placeholder="45000">
+      </label>
+      <div class="two">
+        <label>Life (years)
+          <input id="bYears" type="number" min="0.1" step="0.1" placeholder="3">
+        </label>
+        <label>Uses/week
+          <input id="bUses" type="number" min="0" step="0.1" placeholder="20">
+        </label>
+      </div>
+      <div class="two">
+        <label>Maintenance/year (₹)
+          <input id="bMaintenance" type="number" min="0" step="0.01" placeholder="2500">
+        </label>
+        <label>Resale (₹)
+          <input id="bResale" type="number" min="0" step="0.01" placeholder="7000">
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <button class="compare-button" onclick="comparePurchases()">Compare purchases</button>
+  <div class="compare-result" id="compareResult">
+    <div class="result-placeholder light-placeholder">
+      <span>COMPARISON</span>
+      <h3>Enter both purchases to see the side-by-side numbers.</h3>
+      <p>The comparison shows the calculated metrics for A and B without telling you what to choose.</p>
+    </div>
+  </div>
+</section>
+
 <section id="examples" class="section">
   <div class="section-heading">
     <p class="eyebrow">TRY AN EXAMPLE</p>
@@ -96,8 +167,8 @@
   </div>
   <div class="steps">
     <div><b>01</b><h3>Enter estimates</h3><p>Price, lifespan, usage, maintenance and resale value.</p></div>
-    <div><b>02</b><h3>See the breakdown</h3><p>LifeCost estimates your net cost and turns it into useful usage and time-based metrics.</p></div>
-    <div><b>03</b><h3>Decide for yourself</h3><p>The result is information, not a recommendation. Compare it with your own needs and budget.</p></div>
+    <div><b>02</b><h3>See the breakdown</h3><p>LifeCost turns your inputs into useful usage and time-based metrics.</p></div>
+    <div><b>03</b><h3>Compare if needed</h3><p>Put two purchases side by side and inspect the numbers yourself.</p></div>
   </div>
 </section>
 
@@ -106,8 +177,8 @@
     <p class="eyebrow">LEARN</p>
     <h2>Why real cost matters</h2>
   </div>
-  <p>A ₹60,000 product used hundreds of times can have a very different effective cost from a ₹3,000 product used only a few times. LifeCost separates the upfront price from the way you actually use an item.</p>
-  <p>The calculator is an estimate. Taxes, financing, repairs, opportunity cost, replacement timing and changing resale values can affect the real-world result.</p>
+  <p>A purchase has more than an upfront price. Its lifespan, usage, maintenance and resale value can change the effective cost over time.</p>
+  <p>LifeCost provides estimates. Taxes, financing, opportunity cost, unexpected repairs, replacement timing and changing resale values can affect the real-world result.</p>
 </section>
 </main>
 
