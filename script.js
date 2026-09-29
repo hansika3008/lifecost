@@ -319,3 +319,75 @@ function calculateKeepReplace() {
     </div>
     <p>Difference: <strong>${money(Math.abs(keep - replace))}</strong></p>`;
 }
+
+// V8: share and copy helpers
+function buildMainSummary() {
+  const data = {
+    item: document.getElementById("item").value.trim() || "Purchase",
+    price: num("price"), years: num("years"), uses: num("uses"),
+    maintenance: num("maintenance"), resale: num("resale")
+  };
+  const calc = calculate(data);
+  if (!calc) return null;
+  return `${calc.item} — LifeCost estimate: net cost ${money(calc.net)}, ${money(calc.perUse)} per use, ${money(calc.perMonth)} per month, based on ${Math.round(calc.totalUses).toLocaleString("en-IN")} estimated uses.`;
+}
+
+function showToast(message) {
+  const old = document.querySelector(".share-toast");
+  if (old) old.remove();
+  const toast = document.createElement("div");
+  toast.className = "share-toast";
+  toast.textContent = message;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 2200);
+}
+
+async function copyText(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    showToast("Summary copied.");
+  } catch {
+    showToast("Copy isn't available in this browser.");
+  }
+}
+
+async function shareText(text, title) {
+  if (navigator.share) {
+    try {
+      await navigator.share({title, text, url: location.href});
+      return;
+    } catch (err) {
+      if (err && err.name === "AbortError") return;
+    }
+  }
+  await copyText(text + " " + location.href);
+}
+
+function shareMainResult() {
+  const summary = buildMainSummary();
+  if (!summary) {
+    showToast("Calculate your purchase first.");
+    return;
+  }
+  shareText(summary, "My LifeCost result");
+}
+
+function copyMainResult() {
+  const summary = buildMainSummary();
+  if (!summary) {
+    showToast("Calculate your purchase first.");
+    return;
+  }
+  copyText(summary);
+}
+
+function shareComparison() {
+  const a = calculate(getPurchaseData("a"));
+  const b = calculate(getPurchaseData("b"));
+  if (!a || !b) {
+    showToast("Calculate the comparison first.");
+    return;
+  }
+  const summary = `LifeCost comparison: ${a.item} — ${money(a.net)} net cost, ${money(a.perUse)} per use. ${b.item} — ${money(b.net)} net cost, ${money(b.perUse)} per use.`;
+  shareText(summary, "LifeCost comparison");
+}

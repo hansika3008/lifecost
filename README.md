@@ -1,33 +1,30 @@
-# LifeCost V7
+# LifeCost V8
 
 LifeCost is a browser-based real-cost purchase calculator and comparison toolkit.
 
-## V7 additions
+## V8 additions
 
-### Main calculator
-- Net cost after maintenance and expected resale
-- Cost per use, day, month and year
-- Estimated total uses
-- Cost breakdown
+- SEO metadata and social sharing metadata
+- Search-friendly guide content
+- Structured data for the web application
+- Share/copy result buttons
+- Shareable comparison summary
+- Responsive guide cards
+- Existing calculator, comparison and additional decision tools remain included
 
-### Purchase comparison
-- Compare two purchases side by side
-- Purchase price
-- Net cost
-- Cost per use
-- Cost per day/month/year
-- Estimated total uses
+## Tools
 
-### More tools
-- **Buy vs Rent** — compare estimated ownership cost with rent over a chosen period.
-- **Subscription Cost** — calculate total subscription spending and optional cost per use.
-- **Keep vs Replace** — compare estimated maintenance cost of keeping an item with replacing it.
+- Real Cost Calculator
+- Compare Two Purchases
+- Buy vs Rent
+- Subscription Cost
+- Keep vs Replace
 
 All calculations run in the browser. LifeCost provides estimates and does not choose for the user.
 
-## Run locally
+## Important deployment note
 
-Open `index.html` in a browser.
+The canonical and social URL tags use relative URLs (`./`) so the site can be deployed to GitHub Pages without hard-coding a repository URL.
 
 ## Files
 
