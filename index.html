@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LifeCost helps you understand the real cost of purchases with simple cost-per-use, cost-per-hour, buy-vs-rent, subscription, and keep-vs-replace calculators.">
+  <title>LifeCost — Know What Things Really Cost</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top">LifeCost</a>
+    <nav>
+      <a href="#tools">Tools</a>
+      <a href="#how">How it works</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">BUY SMARTER</p>
+        <h1>Know what things <span>really cost.</span></h1>
+        <p class="hero-copy">Look beyond the price tag. Calculate the real cost of using, renting, subscribing to, or keeping something.</p>
+        <a class="button" href="#tools">Try the calculators</a>
+      </div>
+      <div class="hero-card">
+        <div class="mini-label">Example</div>
+        <div class="example-price">₹60,000</div>
+        <div class="example-title">Laptop</div>
+        <div class="example-grid">
+          <div><b>4 years</b><small>expected life</small></div>
+          <div><b>5 hrs/day</b><small>average use</small></div>
+        </div>
+        <div class="result">≈ ₹8.22 <small>per hour</small></div>
+      </div>
+    </section>
+
+    <section id="tools" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">FREE TOOLS</p>
+        <h2>Calculate before you buy.</h2>
+        <p>Everything runs in your browser. No account and no sensitive information required.</p>
+      </div>
+
+      <div class="tool-grid">
+        <article class="tool-card">
+          <h3>Cost per Use</h3>
+          <p>Find out how much each use really costs.</p>
+          <label>Purchase price <input id="cpu-price" type="number" min="0" placeholder="60000"></label>
+          <label>Expected number of uses <input id="cpu-uses" type="number" min="1" placeholder="300"></label>
+          <button onclick="costPerUse()">Calculate</button>
+          <div id="cpu-result" class="answer"></div>
+        </article>
+
+        <article class="tool-card">
+          <h3>Cost per Hour</h3>
+          <p>Measure the effective hourly cost of a purchase.</p>
+          <label>Purchase price <input id="cph-price" type="number" min="0" placeholder="60000"></label>
+          <label>Total hours of use <input id="cph-hours" type="number" min="1" placeholder="6000"></label>
+          <button onclick="costPerHour()">Calculate</button>
+          <div id="cph-result" class="answer"></div>
+        </article>
+
+        <article class="tool-card">
+          <h3>Buy vs Rent</h3>
+          <p>See when buying becomes cheaper than renting.</p>
+          <label>Purchase price <input id="bvr-buy" type="number" min="0" placeholder="70000"></label>
+          <label>Rental price per day <input id="bvr-rent" type="number" min="0.01" step="0.01" placeholder="1500"></label>
+          <button onclick="buyVsRent()">Calculate</button>
+          <div id="bvr-result" class="answer"></div>
+        </article>
+
+        <article class="tool-card">
+          <h3>Subscription Cost</h3>
+          <p>See the true yearly cost of recurring payments.</p>
+          <label>Monthly price <input id="sub-month" type="number" min="0" step="0.01" placeholder="499"></label>
+          <label>Years subscribed <input id="sub-years" type="number" min="0.1" step="0.1" placeholder="3"></label>
+          <button onclick="subscriptionCost()">Calculate</button>
+          <div id="sub-result" class="answer"></div>
+        </article>
+
+        <article class="tool-card">
+          <h3>Keep vs Replace</h3>
+          <p>Compare keeping an old item with buying a replacement.</p>
+          <label>Repair/maintenance per year <input id="kvr-repair" type="number" min="0" placeholder="5000"></label>
+          <label>Replacement price <input id="kvr-new" type="number" min="0" placeholder="60000"></label>
+          <label>Years you plan to compare <input id="kvr-years" type="number" min="1" placeholder="3"></label>
+          <button onclick="keepVsReplace()">Calculate</button>
+          <div id="kvr-result" class="answer"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="how" class="how section">
+      <div class="section-heading">
+        <p class="eyebrow">WHY LIFECOST</p>
+        <h2>The price isn't the whole story.</h2>
+      </div>
+      <div class="steps">
+        <div><b>01</b><h3>Enter the numbers</h3><p>Price, usage, rental cost, subscription, or maintenance.</p></div>
+        <div><b>02</b><h3>Get the real cost</h3><p>LifeCost turns the numbers into simple, understandable metrics.</p></div>
+        <div><b>03</b><h3>Make your own decision</h3><p>Use the result to compare options before spending money.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><strong>LifeCost</strong><span> — Know what things really cost.</span></div>
+    <p>Calculations are estimates based on the numbers you enter.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
