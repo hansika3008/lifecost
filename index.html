@@ -10,7 +10,7 @@
 <body>
 <header class="site-header">
   <a class="brand" href="#top">LifeCost</a>
-  <nav aria-label="Main navigation"><a href="#calculator">Calculator</a><a href="#compare">Compare</a><a href="#examples">Examples</a><a href="#how">How it works</a></nav>
+  <nav aria-label="Main navigation"><a href="#calculator">Calculator</a><a href="#compare">Compare</a><a href="#tools">More tools</a><a href="#examples">Examples</a><a href="#how">How it works</a></nav>
 </header>
 
 <main id="top">
@@ -143,6 +143,62 @@
       <p>The comparison shows the calculated metrics for A and B without telling you what to choose.</p>
     </div>
   </div>
+</section>
+
+
+<section id="tools" class="section tools-section">
+  <div class="section-heading">
+    <p class="eyebrow">MORE LIFECOST TOOLS</p>
+    <h2>Make everyday money decisions easier.</h2>
+    <p>Three simple tools built around the same real-cost idea.</p>
+  </div>
+
+  <div class="tools-grid">
+    <article class="tool-card">
+      <span class="tool-number">01</span>
+      <h3>Buy vs Rent</h3>
+      <p>Compare the estimated long-term cost of buying something with renting it.</p>
+      <div class="tool-fields">
+        <label>Purchase price (₹)<input id="brPrice" type="number" min="0" step="0.01" placeholder="60000"></label>
+        <label>Ownership years<input id="brYears" type="number" min="0.1" step="0.1" placeholder="4"></label>
+        <label>Annual ownership cost (₹)<input id="brAnnual" type="number" min="0" step="0.01" placeholder="3000"></label>
+        <label>Resale value (₹)<input id="brResale" type="number" min="0" step="0.01" placeholder="10000"></label>
+        <label>Monthly rent (₹)<input id="brRent" type="number" min="0" step="0.01" placeholder="2500"></label>
+      </div>
+      <button type="button" onclick="calculateBuyRent()">Compare buy vs rent</button>
+      <div id="brResult" class="mini-result" aria-live="polite">Enter estimates to see the comparison.</div>
+    </article>
+
+    <article class="tool-card">
+      <span class="tool-number">02</span>
+      <h3>Subscription Cost</h3>
+      <p>Turn a monthly or yearly subscription into a clearer long-term number.</p>
+      <div class="tool-fields">
+        <label>Subscription name<input id="subName" type="text" placeholder="Streaming service"></label>
+        <label>Monthly cost (₹)<input id="subMonthly" type="number" min="0" step="0.01" placeholder="499"></label>
+        <label>Months you expect to keep it<input id="subMonths" type="number" min="1" step="1" placeholder="12"></label>
+        <label>Uses per month<input id="subUses" type="number" min="0" step="0.1" placeholder="8"></label>
+      </div>
+      <button type="button" onclick="calculateSubscription()">Calculate subscription cost</button>
+      <div id="subResult" class="mini-result" aria-live="polite">Enter your subscription details.</div>
+    </article>
+
+    <article class="tool-card">
+      <span class="tool-number">03</span>
+      <h3>Keep vs Replace</h3>
+      <p>Compare the estimated cost of keeping an item with replacing it.</p>
+      <div class="tool-fields">
+        <label>Current repair / maintenance per year (₹)<input id="krCurrent" type="number" min="0" step="0.01" placeholder="6000"></label>
+        <label>Years you plan to keep it<input id="krYears" type="number" min="0.1" step="0.1" placeholder="2"></label>
+        <label>Replacement price (₹)<input id="krNew" type="number" min="0" step="0.01" placeholder="45000"></label>
+        <label>Expected resale of current item (₹)<input id="krResale" type="number" min="0" step="0.01" placeholder="8000"></label>
+      </div>
+      <button type="button" onclick="calculateKeepReplace()">Compare keep vs replace</button>
+      <div id="krResult" class="mini-result" aria-live="polite">Enter estimates to see both totals.</div>
+    </article>
+  </div>
+
+  <p class="tools-note">These tools provide estimates from your inputs. They don't account for every real-world factor and don't make the decision for you.</p>
 </section>
 
 <section id="examples" class="section">

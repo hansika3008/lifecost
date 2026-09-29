@@ -61,3 +61,21 @@ input:invalid{box-shadow:none}
   .button-row,.compare-actions{flex-direction:column;align-items:stretch}
   .button-row button,.compare-actions button{width:100%}
 }
+
+/* V7: additional decision tools */
+.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tool-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 8px 28px rgba(16,24,40,.04)}
+.tool-number{display:block;color:var(--accent);font-size:12px;font-weight:900;letter-spacing:.12em;margin-bottom:10px}
+.tool-card h3{font-size:25px;letter-spacing:-.6px;margin:0 0 8px}
+.tool-card>p{color:var(--muted);min-height:50px;margin:0 0 18px}
+.tool-fields{display:grid;gap:12px}
+.tool-fields label{font-size:12px;font-weight:800}
+.tool-fields input{display:block;width:100%;margin-top:6px}
+.tool-card button{width:100%;margin-top:18px;background:var(--accent);color:#fff;border:0;border-radius:11px;padding:12px 14px;font-weight:850;cursor:pointer}
+.tool-card button:hover{background:var(--accent-dark)}
+.mini-result{margin-top:15px;padding:14px;border-radius:12px;background:#f7f7ff;color:#475467;font-size:13px;min-height:58px}
+.mini-result strong{display:block;color:var(--text);font-size:18px;margin-top:2px}
+.mini-result .mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tools-note{margin:18px 0 0;color:var(--muted);font-size:12px}
+@media(max-width:900px){.tools-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.tools-grid{grid-template-columns:1fr}}

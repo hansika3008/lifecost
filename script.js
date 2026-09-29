@@ -250,3 +250,72 @@ document.addEventListener("keydown", event => {
     else if (compareCard) comparePurchases();
   }
 });
+
+// V7: additional LifeCost tools
+function positiveNumber(id) {
+  const value = Number(document.getElementById(id)?.value);
+  return Number.isFinite(value) && value >= 0 ? value : 0;
+}
+
+function calculateBuyRent() {
+  const price = positiveNumber("brPrice");
+  const years = Number(document.getElementById("brYears").value);
+  const annual = positiveNumber("brAnnual");
+  const resale = positiveNumber("brResale");
+  const rent = positiveNumber("brRent");
+  const el = document.getElementById("brResult");
+
+  if (price <= 0 || years <= 0 || rent <= 0) {
+    el.innerHTML = "Enter a purchase price, ownership period and monthly rent.";
+    return;
+  }
+  const buy = Math.max(0, price + annual * years - resale);
+  const rentTotal = rent * 12 * years;
+  const difference = Math.abs(buy - rentTotal);
+  el.innerHTML = `
+    <div class="mini-grid">
+      <div>Estimated buy cost<strong>${money(buy)}</strong></div>
+      <div>Estimated rent cost<strong>${money(rentTotal)}</strong></div>
+    </div>
+    <p>Difference: <strong>${money(difference)}</strong></p>`;
+}
+
+function calculateSubscription() {
+  const name = document.getElementById("subName").value.trim() || "Subscription";
+  const monthly = positiveNumber("subMonthly");
+  const months = Number(document.getElementById("subMonths").value);
+  const uses = positiveNumber("subUses");
+  const el = document.getElementById("subResult");
+
+  if (monthly <= 0 || months <= 0) {
+    el.innerHTML = "Enter a monthly price and number of months.";
+    return;
+  }
+  const total = monthly * months;
+  const perUse = uses > 0 ? monthly / uses : null;
+  el.innerHTML = `
+    <div><strong>${escapeHtml(name)}</strong></div>
+    <div>Total over ${months} months<strong>${money(total)}</strong></div>
+    ${perUse === null ? "<p>Add monthly uses to estimate cost per use.</p>" : `<p>Estimated cost per use: <strong>${money(perUse)}</strong></p>`}`;
+}
+
+function calculateKeepReplace() {
+  const current = positiveNumber("krCurrent");
+  const years = Number(document.getElementById("krYears").value);
+  const replacement = positiveNumber("krNew");
+  const resale = positiveNumber("krResale");
+  const el = document.getElementById("krResult");
+
+  if (years <= 0 || replacement <= 0) {
+    el.innerHTML = "Enter the time period and replacement price.";
+    return;
+  }
+  const keep = current * years;
+  const replace = Math.max(0, replacement - resale);
+  el.innerHTML = `
+    <div class="mini-grid">
+      <div>Estimated keep cost<strong>${money(keep)}</strong></div>
+      <div>Estimated replace cost<strong>${money(replace)}</strong></div>
+    </div>
+    <p>Difference: <strong>${money(Math.abs(keep - replace))}</strong></p>`;
+}
