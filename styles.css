@@ -35,3 +35,29 @@ label{display:block;font-size:13px;font-weight:750;color:#344054;margin:0 0 14px
 footer{max-width:1120px;margin:auto;border-top:1px solid var(--line);padding:28px 22px 45px;display:flex;gap:15px;justify-content:space-between;color:var(--muted);font-size:13px}footer strong{color:var(--text)}
 @media(max-width:850px){.hero{grid-template-columns:1fr;margin-top:30px}.calculator{grid-template-columns:1fr}.result-panel{min-height:420px}.compare-grid{grid-template-columns:1fr}.example-grid{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}.site-header nav{display:none}.comparison-heading{display:block}.comparison-heading small{display:block;margin-top:8px}}
 @media(max-width:560px){h1{letter-spacing:-2.5px}.section{padding-left:18px;padding-right:18px}.hero{padding-left:18px;padding-right:18px}.two{grid-template-columns:1fr}.example-grid{grid-template-columns:1fr}.section-heading h2{font-size:34px}.metric-grid,.usage-card{grid-template-columns:1fr}.comparison-table{font-size:12px}.table-row>div{padding:10px 8px}footer{display:block}footer>*{display:block;margin-bottom:7px}}
+
+/* V6 polish */
+:focus-visible{outline:3px solid rgba(91,75,255,.35);outline-offset:3px}
+.site-header{position:sticky;top:0;z-index:20;background:rgba(246,247,251,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(228,231,236,.8)}
+.button,.compare-button,button{transition:transform .16s ease,background .16s ease,box-shadow .16s ease}
+.button:hover,.compare-button:hover,button:hover{transform:translateY(-1px)}
+.button:active,.compare-button:active,button:active{transform:translateY(0)}
+.button-row,.compare-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.secondary-button{background:#fff!important;color:var(--text)!important;border:1px solid var(--line)!important;padding:13px 18px;border-radius:11px;font-weight:800;cursor:pointer}
+.secondary-button:hover{border-color:#b7b0ff!important;background:#fafaff!important}
+.form-message{min-height:20px;margin-top:9px;font-size:12px;color:#b42318}
+.form-message:empty{display:none}
+label{display:block}
+input:invalid{box-shadow:none}
+.compare-actions{margin-top:2px}
+.compare-result{scroll-margin-top:90px}
+.example-grid .example{height:100%}
+.site-header nav a{padding:7px 0}
+@media(max-width:560px){
+  .site-header{height:64px}
+  .brand{font-size:21px}
+  .hero-preview{padding:23px}
+  .preview-number{font-size:40px}
+  .button-row,.compare-actions{flex-direction:column;align-items:stretch}
+  .button-row button,.compare-actions button{width:100%}
+}

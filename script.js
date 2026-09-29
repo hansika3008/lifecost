@@ -151,3 +151,102 @@ function escapeHtml(value) {
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
   }[character]));
 }
+
+function showMessage(id, message) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = message || "";
+}
+
+function clearCalculator() {
+  ["item","price","years","uses","maintenance","resale"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = "";
+  });
+  document.getElementById("result").innerHTML = `
+    <div class="result-placeholder">
+      <span>YOUR RESULT</span>
+      <h3>See the real cost of your purchase.</h3>
+      <p>Enter the numbers on the left and we'll break the purchase down into simple metrics.</p>
+    </div>`;
+  showMessage("calcMessage", "");
+}
+
+function clearComparison() {
+  ["aItem","aPrice","aYears","aUses","aMaintenance","aResale","bItem","bPrice","bYears","bUses","bMaintenance","bResale"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = "";
+  });
+  document.getElementById("compareResult").innerHTML = `
+    <div class="result-placeholder light-placeholder">
+      <span>COMPARISON</span>
+      <h3>Enter both purchases to see the side-by-side numbers.</h3>
+      <p>The comparison shows the calculated metrics for A and B without telling you what to choose.</p>
+    </div>`;
+  showMessage("compareMessage", "");
+}
+
+function validatePurchase(data, messageId) {
+  const missing = [];
+  if (data.price <= 0) missing.push("price");
+  if (data.years <= 0) missing.push("lifespan");
+  if (data.uses <= 0) missing.push("weekly usage");
+  if (missing.length) {
+    showMessage(messageId, "Please enter a valid " + missing.join(", ") + ".");
+    return false;
+  }
+  if (data.maintenance < 0 || data.resale < 0) {
+    showMessage(messageId, "Maintenance and resale cannot be negative.");
+    return false;
+  }
+  showMessage(messageId, "");
+  return true;
+}
+
+const originalCalculateRealCost = calculateRealCost;
+calculateRealCost = function() {
+  const data = {
+    item: document.getElementById("item").value.trim() || "This purchase",
+    price: num("price"),
+    years: num("years"),
+    uses: num("uses"),
+    maintenance: num("maintenance"),
+    resale: num("resale")
+  };
+  if (!validatePurchase(data, "calcMessage")) {
+    document.getElementById("result").innerHTML = `
+      <div class="result-placeholder">
+        <span>CHECK YOUR INPUTS</span>
+        <h3>Add the required purchase details.</h3>
+        <p>Price, lifespan and weekly usage must be greater than zero.</p>
+      </div>`;
+    return;
+  }
+  originalCalculateRealCost();
+};
+
+const originalComparePurchases = comparePurchases;
+comparePurchases = function() {
+  const aData = getPurchaseData("a");
+  const bData = getPurchaseData("b");
+  if (!validatePurchase(aData, "compareMessage") || !validatePurchase(bData, "compareMessage")) {
+    document.getElementById("compareResult").innerHTML = `
+      <div class="result-placeholder light-placeholder">
+        <span>CHECK YOUR INPUTS</span>
+        <h3>Complete the required fields for both purchases.</h3>
+        <p>Price, lifespan and weekly usage must be greater than zero.</p>
+      </div>`;
+    return;
+  }
+  showMessage("compareMessage", "");
+  originalComparePurchases();
+  document.getElementById("compareResult").scrollIntoView({behavior:"smooth", block:"start"});
+};
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Enter" && event.target.tagName === "INPUT") {
+    const formPanel = event.target.closest(".form-panel");
+    const compareCard = event.target.closest(".compare-card");
+    if (formPanel) calculateRealCost();
+    else if (compareCard) comparePurchases();
+  }
+});

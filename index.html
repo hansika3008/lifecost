@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="LifeCost helps you estimate real purchase cost and compare two purchases using cost per use, maintenance and resale value.">
-<title>LifeCost — Calculate & Compare Real Cost</title>
+<meta name="description" content="LifeCost is a free real-cost purchase calculator. Estimate cost per use, daily, monthly and yearly cost, then compare two purchases side by side."><meta name="theme-color" content="#111827">
+<title>LifeCost — Real Cost Purchase Calculator</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <header class="site-header">
   <a class="brand" href="#top">LifeCost</a>
-  <nav><a href="#calculator">Calculator</a><a href="#compare">Compare</a><a href="#examples">Examples</a><a href="#how">How it works</a></nav>
+  <nav aria-label="Main navigation"><a href="#calculator">Calculator</a><a href="#compare">Compare</a><a href="#examples">Examples</a><a href="#how">How it works</a></nav>
 </header>
 
 <main id="top">
@@ -60,8 +60,8 @@
           <input id="resale" type="number" min="0" step="0.01" placeholder="10000">
         </label>
       </div>
-      <button onclick="calculateRealCost()">Calculate real cost</button>
-      <div class="privacy">🔒 Your calculation stays in your browser.</div>
+      <div class="button-row"><button type="button" onclick="calculateRealCost()">Calculate real cost</button><button type="button" class="secondary-button" onclick="clearCalculator()">Clear</button></div>
+      <div class="privacy">🔒 Your calculation stays in your browser.</div><div id="calcMessage" class="form-message" role="status" aria-live="polite"></div>
     </div>
 
     <div class="result-panel" id="result">
@@ -135,7 +135,7 @@
     </div>
   </div>
 
-  <button class="compare-button" onclick="comparePurchases()">Compare purchases</button>
+  <div class="compare-actions"><button class="compare-button" type="button" onclick="comparePurchases()">Compare purchases</button><button class="secondary-button" type="button" onclick="clearComparison()">Clear comparison</button></div><div id="compareMessage" class="form-message" role="status" aria-live="polite"></div>
   <div class="compare-result" id="compareResult">
     <div class="result-placeholder light-placeholder">
       <span>COMPARISON</span>
@@ -152,11 +152,11 @@
     <p>Tap an example to fill the calculator automatically.</p>
   </div>
   <div class="example-grid">
-    <button class="example" onclick="loadExample('Laptop',60000,4,20,3000,10000)"><b>💻 Laptop</b><span>₹60,000 · 4 years</span></button>
-    <button class="example" onclick="loadExample('Phone',30000,3,35,1000,6000)"><b>📱 Phone</b><span>₹30,000 · 3 years</span></button>
-    <button class="example" onclick="loadExample('Shoes',3000,2,3,200,500)"><b>👟 Shoes</b><span>₹3,000 · 2 years</span></button>
-    <button class="example" onclick="loadExample('Gym membership',12000,1,4,0,0)"><b>🏋️ Gym</b><span>₹12,000 · 1 year</span></button>
-    <button class="example" onclick="loadExample('Online course',20000,2,2,0,0)"><b>🎓 Course</b><span>₹20,000 · 2 years</span></button>
+    <button type="button" class="example" onclick="loadExample('Laptop',60000,4,20,3000,10000)"><b>💻 Laptop</b><span>₹60,000 · 4 years</span></button>
+    <button type="button" class="example" onclick="loadExample('Phone',30000,3,35,1000,6000)"><b>📱 Phone</b><span>₹30,000 · 3 years</span></button>
+    <button type="button" class="example" onclick="loadExample('Shoes',3000,2,3,200,500)"><b>👟 Shoes</b><span>₹3,000 · 2 years</span></button>
+    <button type="button" class="example" onclick="loadExample('Gym membership',12000,1,4,0,0)"><b>🏋️ Gym</b><span>₹12,000 · 1 year</span></button>
+    <button type="button" class="example" onclick="loadExample('Online course',20000,2,2,0,0)"><b>🎓 Course</b><span>₹20,000 · 2 years</span></button>
   </div>
 </section>
 
