@@ -83,6 +83,10 @@ function calculateRealCost() {
         <strong>${money(calc.net)}</strong>
         <span>after maintenance and expected resale</span>
       </div>
+      <div class="result-actions">
+        <button type="button" class="result-share" onclick="shareMainResult()">↗ Share result</button>
+        <button type="button" class="result-share secondary-result" onclick="copyMainResult()">Copy summary</button>
+      </div>
       <div class="metric-grid">
         <div class="result-item"><small>Cost per use</small><strong>${money(calc.perUse)}</strong></div>
         <div class="result-item"><small>Cost per day</small><strong>${money(calc.perDay)}</strong></div>
@@ -128,7 +132,10 @@ function comparePurchases() {
           <span>COMPARISON RESULTS</span>
           <h3>${escapeHtml(a.item)} vs ${escapeHtml(b.item)}</h3>
         </div>
-        <small>Numbers are estimates based on your inputs.</small>
+        <div class="comparison-actions">
+          <small>Numbers are estimates based on your inputs.</small>
+          <button type="button" class="small-share" onclick="shareComparison()">↗ Share comparison</button>
+        </div>
       </div>
       <div class="comparison-table">
         <div class="table-row table-head">
@@ -320,12 +327,16 @@ function calculateKeepReplace() {
     <p>Difference: <strong>${money(Math.abs(keep - replace))}</strong></p>`;
 }
 
-// V8: share and copy helpers
+// V9: share and copy helpers
 function buildMainSummary() {
+  const item = document.getElementById("item").value.trim() || "Purchase";
   const data = {
-    item: document.getElementById("item").value.trim() || "Purchase",
-    price: num("price"), years: num("years"), uses: num("uses"),
-    maintenance: num("maintenance"), resale: num("resale")
+    item,
+    price: num("price"),
+    years: num("years"),
+    uses: num("uses"),
+    maintenance: num("maintenance"),
+    resale: num("resale")
   };
   const calc = calculate(data);
   if (!calc) return null;
@@ -344,10 +355,22 @@ function showToast(message) {
 
 async function copyText(text) {
   try {
-    await navigator.clipboard.writeText(text);
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      const area = document.createElement("textarea");
+      area.value = text;
+      area.style.position = "fixed";
+      area.style.opacity = "0";
+      document.body.appendChild(area);
+      area.focus();
+      area.select();
+      document.execCommand("copy");
+      area.remove();
+    }
     showToast("Summary copied.");
-  } catch {
-    showToast("Copy isn't available in this browser.");
+  } catch (e) {
+    showToast("Copy failed. Please select and copy the text manually.");
   }
 }
 

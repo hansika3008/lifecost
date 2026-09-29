@@ -1,34 +1,10 @@
-# LifeCost V8
+# LifeCost V9
 
-LifeCost is a browser-based real-cost purchase calculator and comparison toolkit.
+V9 fixes the V8 sharing UI and keeps all existing calculators.
 
-## V8 additions
-
-- SEO metadata and social sharing metadata
-- Search-friendly guide content
-- Structured data for the web application
-- Share/copy result buttons
-- Shareable comparison summary
-- Responsive guide cards
-- Existing calculator, comparison and additional decision tools remain included
-
-## Tools
-
-- Real Cost Calculator
-- Compare Two Purchases
-- Buy vs Rent
-- Subscription Cost
-- Keep vs Replace
-
-All calculations run in the browser. LifeCost provides estimates and does not choose for the user.
-
-## Important deployment note
-
-The canonical and social URL tags use relative URLs (`./`) so the site can be deployed to GitHub Pages without hard-coding a repository URL.
-
-## Files
-
-- `index.html`
-- `styles.css`
-- `script.js`
-- `README.md`
+## V9 changes
+- Share result and Copy summary buttons are now rendered inside the calculator result.
+- Share comparison button is rendered inside comparison results.
+- Copy works with Clipboard API and a fallback for browsers where Clipboard API is unavailable.
+- Added scroll offset so the sticky header does not cover section content.
+- Existing SEO, guides, calculators and V8 features remain included.
