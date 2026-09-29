@@ -3,25 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <meta name="description" content="LifeCost is a free real-cost purchase calculator. Estimate cost per use, daily, monthly and yearly cost, then compare two purchases side by side.">
-
 <meta name="theme-color" content="#111827">
 <meta name="robots" content="index, follow">
-
 <link rel="canonical" href="https://hansika3008.github.io/lifecost/">
-
 <meta property="og:type" content="website">
 <meta property="og:title" content="LifeCost — Real Cost Purchase Calculator">
 <meta property="og:description" content="Calculate the real cost of purchases and compare options using cost per use, maintenance, lifespan and resale value.">
 <meta property="og:url" content="https://hansika3008.github.io/lifecost/">
-
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LifeCost — Real Cost Purchase Calculator">
 <meta name="twitter:description" content="Calculate real purchase cost and compare two options.">
-
 <title>LifeCost – Real Cost Purchase Calculator</title>
-
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="stylesheet" href="styles.css">
 
@@ -33,11 +26,7 @@
   "applicationCategory":"FinanceApplication",
   "operatingSystem":"Any",
   "description":"A browser-based calculator for estimating real purchase costs and comparing purchases.",
-  "offers":{
-    "@type":"Offer",
-    "price":"0",
-    "priceCurrency":"INR"
-  }
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"INR"}
 }
 </script>
 
@@ -45,26 +34,22 @@
 .guide-grid article{
   transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease;
 }
-
 .guide-card-link{
   display:block;
   color:inherit;
   text-decoration:none;
 }
-
 .guide-grid article:hover{
   transform:translateY(-2px);
   border-color:#b7b0ff;
   box-shadow:0 10px 30px rgba(16,24,40,.06);
 }
 </style>
-
 </head>
 
 <body>
 
 <header class="site-header">
-
   <a class="brand" href="#top">LifeCost</a>
 
   <nav aria-label="Main navigation">
@@ -75,1071 +60,297 @@
     <a href="#guides">Guides</a>
     <a href="#how">How it works</a>
   </nav>
-
 </header>
-
 
 <main id="top">
 
-
 <section class="hero">
-
   <div class="hero-copy">
-
     <p class="eyebrow">BUY SMARTER</p>
-
-    <h1>
-      What will it <span>really cost you?</span>
-    </h1>
-
-    <p>
-      Look beyond the price tag. Calculate the cost of using something
-      over its lifetime, then compare two purchases side by side.
-    </p>
-
-    <a class="button" href="#calculator">
-      Calculate my purchase
-    </a>
-
+    <h1>What will it <span>really cost you?</span></h1>
+    <p>Look beyond the price tag. Calculate the cost of using something over its lifetime, then compare two purchases side by side.</p>
+    <a class="button" href="#calculator">Calculate my purchase</a>
   </div>
-
 
   <div class="hero-preview">
-
-    <div class="preview-label">
-      LifeCost example
-    </div>
-
-    <div class="preview-number">
-      ₹14.90 <small>/ use</small>
-    </div>
-
-    <div class="preview-row">
-      <span>₹60,000 purchase</span>
-      <span>4,160 uses</span>
-    </div>
-
-    <div class="preview-note">
-      A purchase can look expensive upfront but have a lower cost when
-      you use it often.
-    </div>
-
+    <div class="preview-label">LifeCost example</div>
+    <div class="preview-number">₹14.90 <small>/ use</small></div>
+    <div class="preview-row"><span>₹60,000 purchase</span><span>4,160 uses</span></div>
+    <div class="preview-note">A purchase can look expensive upfront but have a lower cost when you use it often.</div>
   </div>
-
 </section>
-
 
 <section id="calculator" class="section">
-
   <div class="section-heading">
-
-    <p class="eyebrow">
-      REAL COST CALCULATOR
-    </p>
-
-    <h2>
-      Calculate one purchase.
-    </h2>
-
-    <p>
-      Use estimates if you don't know the exact numbers.
-      Everything is calculated in your browser.
-    </p>
-
+    <p class="eyebrow">REAL COST CALCULATOR</p>
+    <h2>Calculate one purchase.</h2>
+    <p>Use estimates if you don't know the exact numbers. Everything is calculated in your browser.</p>
   </div>
-
 
   <div class="calculator">
-
-
     <div class="form-panel">
-
-      <label>
-        What are you buying?
-
-        <input
-          id="item"
-          type="text"
-          placeholder="e.g. Laptop">
+      <label>What are you buying?
+        <input id="item" type="text" placeholder="e.g. Laptop">
       </label>
-
-
-      <label>
-        Purchase price (₹)
-
-        <input
-          id="price"
-          type="number"
-          min="0"
-          step="0.01"
-          placeholder="60000">
+      <label>Purchase price (₹)
+        <input id="price" type="number" min="0" step="0.01" placeholder="60000">
       </label>
-
-
       <div class="two">
-
-        <label>
-          Expected life (years)
-
-          <input
-            id="years"
-            type="number"
-            min="0.1"
-            step="0.1"
-            placeholder="4">
+        <label>Expected life (years)
+          <input id="years" type="number" min="0.1" step="0.1" placeholder="4">
         </label>
-
-
-        <label>
-          Uses per week
-
-          <input
-            id="uses"
-            type="number"
-            min="0"
-            step="0.1"
-            placeholder="20">
+        <label>Uses per week
+          <input id="uses" type="number" min="0" step="0.1" placeholder="20">
         </label>
-
       </div>
-
-
       <div class="two">
-
-        <label>
-          Maintenance / year (₹)
-
-          <input
-            id="maintenance"
-            type="number"
-            min="0"
-            step="0.01"
-            placeholder="3000">
+        <label>Maintenance / year (₹)
+          <input id="maintenance" type="number" min="0" step="0.01" placeholder="3000">
         </label>
-
-
-        <label>
-          Expected resale (₹)
-
-          <input
-            id="resale"
-            type="number"
-            min="0"
-            step="0.01"
-            placeholder="10000">
+        <label>Expected resale (₹)
+          <input id="resale" type="number" min="0" step="0.01" placeholder="10000">
         </label>
-
       </div>
-
-
       <div class="button-row">
-
-        <button
-          type="button"
-          onclick="calculateRealCost()">
-          Calculate real cost
-        </button>
-
-        <button
-          type="button"
-          class="secondary-button"
-          onclick="clearCalculator()">
-          Clear
-        </button>
-
+        <button type="button" onclick="calculateRealCost()">Calculate real cost</button>
+        <button type="button" class="secondary-button" onclick="clearCalculator()">Clear</button>
       </div>
-
-
-      <div class="privacy">
-        🔒 Your calculation stays in your browser.
-      </div>
-
-
-      <div
-        id="calcMessage"
-        class="form-message"
-        role="status"
-        aria-live="polite">
-      </div>
-
+      <div class="privacy">🔒 Your calculation stays in your browser.</div>
+      <div id="calcMessage" class="form-message" role="status" aria-live="polite"></div>
     </div>
-
 
     <div class="result-panel" id="result">
-
       <div class="result-placeholder">
-
-        <span>
-          YOUR RESULT
-        </span>
-
-        <h3>
-          See the real cost of your purchase.
-        </h3>
-
-        <p>
-          Enter the numbers on the left and we'll break the purchase
-          down into simple metrics.
-        </p>
-
+        <span>YOUR RESULT</span>
+        <h3>See the real cost of your purchase.</h3>
+        <p>Enter the numbers on the left and we'll break the purchase down into simple metrics.</p>
       </div>
-
     </div>
-
   </div>
-
 </section>
-
 
 <section id="compare" class="section compare-section">
-
   <div class="section-heading">
-
-    <p class="eyebrow">
-      COMPARE TWO PURCHASES
-    </p>
-
-    <h2>
-      Put two options side by side.
-    </h2>
-
-    <p>
-      Enter the same type of information for both purchases.
-      LifeCost calculates the numbers separately so you can inspect
-      the difference yourself.
-    </p>
-
+    <p class="eyebrow">COMPARE TWO PURCHASES</p>
+    <h2>Put two options side by side.</h2>
+    <p>Enter the same type of information for both purchases. LifeCost calculates the numbers separately so you can inspect the difference yourself.</p>
   </div>
-
 
   <div class="compare-grid">
-
-
     <div class="compare-card">
-
-      <div class="compare-title">
-        <span class="compare-badge">A</span>
-        <h3>Purchase A</h3>
-      </div>
-
-
-      <label>
-        Name
-
-        <input
-          id="aItem"
-          type="text"
-          placeholder="e.g. Laptop A">
+      <div class="compare-title"><span class="compare-badge">A</span><h3>Purchase A</h3></div>
+      <label>Name
+        <input id="aItem" type="text" placeholder="e.g. Laptop A">
       </label>
-
-
-      <label>
-        Price (₹)
-
-        <input
-          id="aPrice"
-          type="number"
-          min="0"
-          step="0.01"
-          placeholder="60000">
+      <label>Price (₹)
+        <input id="aPrice" type="number" min="0" step="0.01" placeholder="60000">
       </label>
-
-
       <div class="two">
-
-        <label>
-          Life (years)
-
-          <input
-            id="aYears"
-            type="number"
-            min="0.1"
-            step="0.1"
-            placeholder="4">
+        <label>Life (years)
+          <input id="aYears" type="number" min="0.1" step="0.1" placeholder="4">
         </label>
-
-
-        <label>
-          Uses/week
-
-          <input
-            id="aUses"
-            type="number"
-            min="0"
-            step="0.1"
-            placeholder="20">
+        <label>Uses/week
+          <input id="aUses" type="number" min="0" step="0.1" placeholder="20">
         </label>
-
       </div>
-
-
       <div class="two">
-
-        <label>
-          Maintenance/year (₹)
-
-          <input
-            id="aMaintenance"
-            type="number"
-            min="0"
-            step="0.01"
-            placeholder="3000">
+        <label>Maintenance/year (₹)
+          <input id="aMaintenance" type="number" min="0" step="0.01" placeholder="3000">
         </label>
-
-
-        <label>
-          Resale (₹)
-
-          <input
-            id="aResale"
-            type="number"
-            min="0"
-            step="0.01"
-            placeholder="10000">
+        <label>Resale (₹)
+          <input id="aResale" type="number" min="0" step="0.01" placeholder="10000">
         </label>
-
       </div>
-
     </div>
 
-
     <div class="compare-card">
-
-      <div class="compare-title">
-        <span class="compare-badge">B</span>
-        <h3>Purchase B</h3>
-      </div>
-
-
-      <label>
-        Name
-
-        <input
-          id="bItem"
-          type="text"
-          placeholder="e.g. Laptop B">
+      <div class="compare-title"><span class="compare-badge">B</span><h3>Purchase B</h3></div>
+      <label>Name
+        <input id="bItem" type="text" placeholder="e.g. Laptop B">
       </label>
-
-
-      <label>
-        Price (₹)
-
-        <input
-          id="bPrice"
-          type="number"
-          min="0"
-          step="0.01"
-          placeholder="45000">
+      <label>Price (₹)
+        <input id="bPrice" type="number" min="0" step="0.01" placeholder="45000">
       </label>
-
-
       <div class="two">
-
-        <label>
-          Life (years)
-
-          <input
-            id="bYears"
-            type="number"
-            min="0.1"
-            step="0.1"
-            placeholder="3">
+        <label>Life (years)
+          <input id="bYears" type="number" min="0.1" step="0.1" placeholder="3">
         </label>
-
-
-        <label>
-          Uses/week
-
-          <input
-            id="bUses"
-            type="number"
-            min="0"
-            step="0.1"
-            placeholder="20">
+        <label>Uses/week
+          <input id="bUses" type="number" min="0" step="0.1" placeholder="20">
         </label>
-
       </div>
-
-
       <div class="two">
-
-        <label>
-          Maintenance/year (₹)
-
-          <input
-            id="bMaintenance"
-            type="number"
-            min="0"
-            step="0.01"
-            placeholder="2500">
+        <label>Maintenance/year (₹)
+          <input id="bMaintenance" type="number" min="0" step="0.01" placeholder="2500">
         </label>
-
-
-        <label>
-          Resale (₹)
-
-          <input
-            id="bResale"
-            type="number"
-            min="0"
-            step="0.01"
-            placeholder="7000">
+        <label>Resale (₹)
+          <input id="bResale" type="number" min="0" step="0.01" placeholder="7000">
         </label>
-
       </div>
-
     </div>
-
   </div>
-
 
   <div class="compare-actions">
-
-    <button
-      class="compare-button"
-      type="button"
-      onclick="comparePurchases()">
-      Compare purchases
-    </button>
-
-
-    <button
-      class="secondary-button"
-      type="button"
-      onclick="clearComparison()">
-      Clear comparison
-    </button>
-
+    <button class="compare-button" type="button" onclick="comparePurchases()">Compare purchases</button>
+    <button class="secondary-button" type="button" onclick="clearComparison()">Clear comparison</button>
   </div>
 
-
-  <div
-    id="compareMessage"
-    class="form-message"
-    role="status"
-    aria-live="polite">
-  </div>
-
+  <div id="compareMessage" class="form-message" role="status" aria-live="polite"></div>
 
   <div class="compare-result" id="compareResult">
-
     <div class="result-placeholder light-placeholder">
-
-      <span>
-        COMPARISON
-      </span>
-
-      <h3>
-        Enter both purchases to see the side-by-side numbers.
-      </h3>
-
-      <p>
-        The comparison shows the calculated metrics for A and B
-        without telling you what to choose.
-      </p>
-
+      <span>COMPARISON</span>
+      <h3>Enter both purchases to see the side-by-side numbers.</h3>
+      <p>The comparison shows the calculated metrics for A and B without telling you what to choose.</p>
     </div>
-
   </div>
-
 </section>
 
-
 <section id="tools" class="section tools-section">
-
   <div class="section-heading">
-
-    <p class="eyebrow">
-      MORE LIFECOST TOOLS
-    </p>
-
-    <h2>
-      Make everyday money decisions easier.
-    </h2>
-
-    <p>
-      Three simple tools built around the same real-cost idea.
-    </p>
-
+    <p class="eyebrow">MORE LIFECOST TOOLS</p>
+    <h2>Make everyday money decisions easier.</h2>
+    <p>Three simple tools built around the same real-cost idea.</p>
   </div>
-
 
   <div class="tools-grid">
 
-
     <article class="tool-card">
-
-      <span class="tool-number">
-        01
-      </span>
-
-      <h3>
-        Buy vs Rent
-      </h3>
-
-      <p>
-        Compare the estimated long-term cost of buying something
-        with renting it.
-      </p>
-
-
+      <span class="tool-number">01</span>
+      <h3>Buy vs Rent</h3>
+      <p>Compare the estimated long-term cost of buying something with renting it.</p>
       <div class="tool-fields">
-
-        <label>
-          Purchase price (₹)
-          <input
-            id="brPrice"
-            type="number"
-            min="0"
-            step="0.01"
-            placeholder="60000">
-        </label>
-
-
-        <label>
-          Ownership years
-          <input
-            id="brYears"
-            type="number"
-            min="0.1"
-            step="0.1"
-            placeholder="4">
-        </label>
-
-
-        <label>
-          Annual ownership cost (₹)
-          <input
-            id="brAnnual"
-            type="number"
-            min="0"
-            step="0.01"
-            placeholder="3000">
-        </label>
-
-
-        <label>
-          Resale value (₹)
-          <input
-            id="brResale"
-            type="number"
-            min="0"
-            step="0.01"
-            placeholder="10000">
-        </label>
-
-
-        <label>
-          Monthly rent (₹)
-          <input
-            id="brRent"
-            type="number"
-            min="0"
-            step="0.01"
-            placeholder="2500">
-        </label>
-
+        <label>Purchase price (₹)<input id="brPrice" type="number" min="0" step="0.01" placeholder="60000"></label>
+        <label>Ownership years<input id="brYears" type="number" min="0.1" step="0.1" placeholder="4"></label>
+        <label>Annual ownership cost (₹)<input id="brAnnual" type="number" min="0" step="0.01" placeholder="3000"></label>
+        <label>Resale value (₹)<input id="brResale" type="number" min="0" step="0.01" placeholder="10000"></label>
+        <label>Monthly rent (₹)<input id="brRent" type="number" min="0" step="0.01" placeholder="2500"></label>
       </div>
-
-
-      <button
-        type="button"
-        onclick="calculateBuyRent()">
-        Compare buy vs rent
-      </button>
-
-
-      <div
-        id="brResult"
-        class="mini-result"
-        aria-live="polite">
-        Enter estimates to see the comparison.
-      </div>
-
+      <button type="button" onclick="calculateBuyRent()">Compare buy vs rent</button>
+      <div id="brResult" class="mini-result" aria-live="polite">Enter estimates to see the comparison.</div>
     </article>
 
-
-
     <article class="tool-card">
-
-      <span class="tool-number">
-        02
-      </span>
-
-      <h3>
-        Subscription Cost
-      </h3>
-
-      <p>
-        Turn a monthly or yearly subscription into a clearer
-        long-term number.
-      </p>
-
-
+      <span class="tool-number">02</span>
+      <h3>Subscription Cost</h3>
+      <p>Turn a monthly or yearly subscription into a clearer long-term number.</p>
       <div class="tool-fields">
-
-        <label>
-          Subscription name
-
-          <input
-            id="subName"
-            type="text"
-            placeholder="Streaming service">
-        </label>
-
-
-        <label>
-          Monthly cost (₹)
-
-          <input
-            id="subMonthly"
-            type="number"
-            min="0"
-            step="0.01"
-            placeholder="499">
-        </label>
-
-
-        <label>
-          Months you expect to keep it
-
-          <input
-            id="subMonths"
-            type="number"
-            min="1"
-            step="1"
-            placeholder="12">
-        </label>
-
-
-        <label>
-          Uses per month
-
-          <input
-            id="subUses"
-            type="number"
-            min="0"
-            step="0.1"
-            placeholder="8">
-        </label>
-
+        <label>Subscription name<input id="subName" type="text" placeholder="Streaming service"></label>
+        <label>Monthly cost (₹)<input id="subMonthly" type="number" min="0" step="0.01" placeholder="499"></label>
+        <label>Months you expect to keep it<input id="subMonths" type="number" min="1" step="1" placeholder="12"></label>
+        <label>Uses per month<input id="subUses" type="number" min="0" step="0.1" placeholder="8"></label>
       </div>
-
-
-      <button
-        type="button"
-        onclick="calculateSubscription()">
-        Calculate subscription cost
-      </button>
-
-
-      <div
-        id="subResult"
-        class="mini-result"
-        aria-live="polite">
-        Enter your subscription details.
-      </div>
-
+      <button type="button" onclick="calculateSubscription()">Calculate subscription cost</button>
+      <div id="subResult" class="mini-result" aria-live="polite">Enter your subscription details.</div>
     </article>
 
-
-
     <article class="tool-card">
-
-      <span class="tool-number">
-        03
-      </span>
-
-      <h3>
-        Keep vs Replace
-      </h3>
-
-      <p>
-        Compare the estimated cost of keeping an item with replacing it.
-      </p>
-
-
+      <span class="tool-number">03</span>
+      <h3>Keep vs Replace</h3>
+      <p>Compare the estimated cost of keeping an item with replacing it.</p>
       <div class="tool-fields">
-
-        <label>
-          Current repair / maintenance per year (₹)
-
-          <input
-            id="krCurrent"
-            type="number"
-            min="0"
-            step="0.01"
-            placeholder="6000">
-        </label>
-
-
-        <label>
-          Years you plan to keep it
-
-          <input
-            id="krYears"
-            type="number"
-            min="0.1"
-            step="0.1"
-            placeholder="2">
-        </label>
-
-
-        <label>
-          Replacement price (₹)
-
-          <input
-            id="krNew"
-            type="number"
-            min="0"
-            step="0.01"
-            placeholder="45000">
-        </label>
-
-
-        <label>
-          Expected resale of current item (₹)
-
-          <input
-            id="krResale"
-            type="number"
-            min="0"
-            step="0.01"
-            placeholder="8000">
-        </label>
-
+        <label>Current repair / maintenance per year (₹)<input id="krCurrent" type="number" min="0" step="0.01" placeholder="6000"></label>
+        <label>Years you plan to keep it<input id="krYears" type="number" min="0.1" step="0.1" placeholder="2"></label>
+        <label>Replacement price (₹)<input id="krNew" type="number" min="0" step="0.01" placeholder="45000"></label>
+        <label>Expected resale of current item (₹)<input id="krResale" type="number" min="0" step="0.01" placeholder="8000"></label>
       </div>
-
-
-      <button
-        type="button"
-        onclick="calculateKeepReplace()">
-        Compare keep vs replace
-      </button>
-
-
-      <div
-        id="krResult"
-        class="mini-result"
-        aria-live="polite">
-        Enter estimates to see both totals.
-      </div>
-
+      <button type="button" onclick="calculateKeepReplace()">Compare keep vs replace</button>
+      <div id="krResult" class="mini-result" aria-live="polite">Enter estimates to see both totals.</div>
     </article>
 
   </div>
 
-
-  <p class="tools-note">
-    These tools provide estimates from your inputs. They don't account
-    for every real-world factor and don't make the decision for you.
-  </p>
-
+  <p class="tools-note">These tools provide estimates from your inputs. They don't account for every real-world factor and don't make the decision for you.</p>
 </section>
-
 
 <section id="examples" class="section">
-
   <div class="section-heading">
-
-    <p class="eyebrow">
-      TRY AN EXAMPLE
-    </p>
-
-    <h2>
-      What should we calculate?
-    </h2>
-
-    <p>
-      Tap an example to fill the calculator automatically.
-    </p>
-
+    <p class="eyebrow">TRY AN EXAMPLE</p>
+    <h2>What should we calculate?</h2>
+    <p>Tap an example to fill the calculator automatically.</p>
   </div>
-
 
   <div class="example-grid">
-
-    <button
-      type="button"
-      class="example"
-      onclick="loadExample('Laptop',60000,4,20,3000,10000)">
-      <b>💻 Laptop</b>
-      <span>₹60,000 · 4 years</span>
-    </button>
-
-
-    <button
-      type="button"
-      class="example"
-      onclick="loadExample('Phone',30000,3,35,1000,6000)">
-      <b>📱 Phone</b>
-      <span>₹30,000 · 3 years</span>
-    </button>
-
-
-    <button
-      type="button"
-      class="example"
-      onclick="loadExample('Shoes',3000,2,3,200,500)">
-      <b>👟 Shoes</b>
-      <span>₹3,000 · 2 years</span>
-    </button>
-
-
-    <button
-      type="button"
-      class="example"
-      onclick="loadExample('Gym membership',12000,1,4,0,0)">
-      <b>🏋️ Gym</b>
-      <span>₹12,000 · 1 year</span>
-    </button>
-
-
-    <button
-      type="button"
-      class="example"
-      onclick="loadExample('Online course',20000,2,2,0,0)">
-      <b>🎓 Course</b>
-      <span>₹20,000 · 2 years</span>
-    </button>
-
+    <button type="button" class="example" onclick="loadExample('Laptop',60000,4,20,3000,10000)"><b>💻 Laptop</b><span>₹60,000 · 4 years</span></button>
+    <button type="button" class="example" onclick="loadExample('Phone',30000,3,35,1000,6000)"><b>📱 Phone</b><span>₹30,000 · 3 years</span></button>
+    <button type="button" class="example" onclick="loadExample('Shoes',3000,2,3,200,500)"><b>👟 Shoes</b><span>₹3,000 · 2 years</span></button>
+    <button type="button" class="example" onclick="loadExample('Gym membership',12000,1,4,0,0)"><b>🏋️ Gym</b><span>₹12,000 · 1 year</span></button>
+    <button type="button" class="example" onclick="loadExample('Online course',20000,2,2,0,0)"><b>🎓 Course</b><span>₹20,000 · 2 years</span></button>
   </div>
-
 </section>
-
 
 <section id="how" class="section">
-
   <div class="section-heading">
-
-    <p class="eyebrow">
-      WHY LIFECOST
-    </p>
-
-    <h2>
-      The price isn't the whole story.
-    </h2>
-
+    <p class="eyebrow">WHY LIFECOST</p>
+    <h2>The price isn't the whole story.</h2>
   </div>
-
 
   <div class="steps">
-
-    <div>
-      <b>01</b>
-      <h3>Enter estimates</h3>
-      <p>
-        Price, lifespan, usage, maintenance and resale value.
-      </p>
-    </div>
-
-
-    <div>
-      <b>02</b>
-      <h3>See the breakdown</h3>
-      <p>
-        LifeCost turns your inputs into useful usage and
-        time-based metrics.
-      </p>
-    </div>
-
-
-    <div>
-      <b>03</b>
-      <h3>Compare if needed</h3>
-      <p>
-        Put two purchases side by side and inspect the numbers yourself.
-      </p>
-    </div>
-
+    <div><b>01</b><h3>Enter estimates</h3><p>Price, lifespan, usage, maintenance and resale value.</p></div>
+    <div><b>02</b><h3>See the breakdown</h3><p>LifeCost turns your inputs into useful usage and time-based metrics.</p></div>
+    <div><b>03</b><h3>Compare if needed</h3><p>Put two purchases side by side and inspect the numbers yourself.</p></div>
   </div>
-
 </section>
-
 
 <section class="section content">
-
   <div class="section-heading">
-
-    <p class="eyebrow">
-      LEARN
-    </p>
-
-    <h2>
-      Why real cost matters
-    </h2>
-
+    <p class="eyebrow">LEARN</p>
+    <h2>Why real cost matters</h2>
   </div>
-
-
-  <p>
-    A purchase has more than an upfront price. Its lifespan, usage,
-    maintenance and resale value can change the effective cost over time.
-  </p>
-
-
-  <p>
-    LifeCost provides estimates. Taxes, financing, opportunity cost,
-    unexpected repairs, replacement timing and changing resale values
-    can affect the real-world result.
-  </p>
-
+  <p>A purchase has more than an upfront price. Its lifespan, usage, maintenance and resale value can change the effective cost over time.</p>
+  <p>LifeCost provides estimates. Taxes, financing, opportunity cost, unexpected repairs, replacement timing and changing resale values can affect the real-world result.</p>
 </section>
 
-
 <section class="section seo-section" id="guides">
-
   <div class="section-heading">
-
-    <p class="eyebrow">
-      LIFECOST GUIDES
-    </p>
-
-    <h2>
-      Useful ways to think about everyday purchases.
-    </h2>
-
-    <p>
-      LifeCost turns simple estimates into numbers you can use when
-      researching a purchase.
-    </p>
-
+    <p class="eyebrow">LIFECOST GUIDES</p>
+    <h2>Useful ways to think about everyday purchases.</h2>
+    <p>LifeCost turns simple estimates into numbers you can use when researching a purchase.</p>
   </div>
-
 
   <div class="guide-grid">
 
-
-    <!-- GUIDE 1 -->
-
     <article>
-
-      <a
-        class="guide-card-link"
-        href="cost-per-use.html">
-
-        <h3>
-          How to calculate cost per use
-        </h3>
-
-        <p>
-          Take the estimated net cost of an item and divide it by
-          the number of times you expect to use it. For example,
-          an item used frequently can have a lower cost per use
-          even when its upfront price is higher.
-        </p>
-
+      <a class="guide-card-link" href="cost-per-use.html">
+        <h3>How to calculate cost per use</h3>
+        <p>Take the estimated net cost of an item and divide it by the number of times you expect to use it. For example, an item used frequently can have a lower cost per use even when its upfront price is higher.</p>
       </a>
-
     </article>
 
-
-    <!-- GUIDE 2 -->
-
     <article>
-
-      <a
-        class="guide-card-link"
-        href="real-cost.html">
-
-        <h3>
-          What counts as real cost?
-        </h3>
-
-        <p>
-          LifeCost can include the purchase price, expected maintenance
-          and expected resale value. Other factors such as financing,
-          taxes, repairs and opportunity cost may also matter in a
-          real purchase.
-        </p>
-
+      <a class="guide-card-link" href="real-cost.html">
+        <h3>What counts as real cost?</h3>
+        <p>LifeCost can include the purchase price, expected maintenance and expected resale value. Other factors such as financing, taxes, repairs and opportunity cost may also matter in a real purchase.</p>
       </a>
-
     </article>
 
-
-    <!-- GUIDE 3 -->
-
     <article>
-
-      <a
-        class="guide-card-link"
-        href="compare-two-products.html">
-
-        <h3>
-          How to compare two products
-        </h3>
-
-        <p>
-          Compare the same metrics for both products: net cost,
-          cost per use, lifespan and expected usage. Then consider
-          features, quality, warranty and your personal requirements
-          separately.
-        </p>
-
+      <a class="guide-card-link" href="compare-two-products.html">
+        <h3>How to compare two products</h3>
+        <p>Compare the same metrics for both products: net cost, cost per use, lifespan and expected usage. Then consider features, quality, warranty and your personal requirements separately.</p>
       </a>
-
     </article>
 
-
-    <!-- GUIDE 4 -->
-
     <article>
-
-      <a
-        class="guide-card-link"
-        href="subscription-cost.html">
-
-        <h3>
-          Why subscriptions add up
-        </h3>
-
-        <p>
-          A small monthly subscription becomes a larger amount over
-          many months. LifeCost's subscription tool helps turn a
-          monthly price into a longer-term total and, when usage is
-          provided, an estimated cost per use.
-        </p>
-
+      <a class="guide-card-link" href="subscription-cost.html">
+        <h3>Why subscriptions add up</h3>
+        <p>A small monthly subscription becomes a larger amount over many months. LifeCost's subscription tool helps turn a monthly price into a longer-term total and, when usage is provided, an estimated cost per use.</p>
       </a>
-
     </article>
-
 
   </div>
-
 </section>
-
 
 </main>
 
-
 <footer>
-
-  <a href="index.html" class="footer-brand">
-    LifeCost
-  </a>
-
-  <a href="about.html">
-    About
-  </a>
-
-  <a href="how-it-works.html">
-    How It Works
-  </a>
-
-  <a href="privacy.html">
-    Privacy Policy
-  </a>
-
-  <a href="contact.html">
-    Contact
-  </a>
-
+  <a href="index.html" class="footer-brand">LifeCost</a>
+  <a href="about.html">About</a>
+  <a href="how-it-works.html">How It Works</a>
+  <a href="privacy.html">Privacy Policy</a>
+  <a href="contact.html">Contact</a>
 </footer>
 
-
 <script src="script.js"></script>
-
 </body>
 </html>
